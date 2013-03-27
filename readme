@@ -1,0 +1,54 @@
+<<<<<<< HEAD
+Получаем HTML страницу (http://realt.ua), анализируя ее получаем необходимую таблицу, 
+данные таблицы помещаем в БД (MySQL, www.cleardb.com)
+
+#Находит таблицу по шапке заключенную в теги <table> <tr><th></th></tr> </table>
+
+=======
+>>>>>>> 8faddc850d38ac00fcc800bb7f73fafc326c3e50
+#Шаблон запроса
+	  #http://realt.ua/Db2/0Sd_Kv.php?cnt_all=289&idNp=100000&Cn_min=1000&Cn_max=3000&valt=4&TmSdch=9999&vSps=0&srtby=5&pos=0
+      #Cn_min= минимальная цена
+      #Cn_max= максимальная цена
+      #valt тип валюты 4-евро 2-долары 1-гривня
+      #при добавлении vSps=0 оттображается таблицей 
+      #cnt_all количество строк таблицы вернувшихся с сервера (можно пропускать)
+	  #showNum количество строк отображаемых в таблице вывода 20, 30, 50 задать вручную
+	  #pos перелистывает страницу на следующие n строк при showNum=50 - 0, 50, 100. Необходимо вычислять через параметр cnt_all и showNum
+<<<<<<< HEAD
+	  #порядок следования переменных безразлично  
+
+# в данной программе используем erb
+# в переменной класса @resTable сохраняем массив с данными таблицы
+
+Ошибки возникшие при программировании:
+
+# При работе возникла проблема с кодировкой текста. В консоле Windows была кодировка IBM6680 при которой выдавало ошибку при перекодировке 
+#в Windows-1251. Для исправления данной ошибки изменил кодировку текста в консоле Start->Run->regedit
+#Go to [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage]
+#And change the "OEMCP" value to "1252"  
+
+При ошибке:
+
+rubystack-1.9.3-5/ruby/lib/ruby/gems/1.9.1/gems/hpricot-0.8.5/lib/hpricot/builder.rb:9:in `gsub': invalid byte sequence in UTF-8 (ArgumentError)
+	from /home/alexey/rubystack-1.9.3-5/ruby/lib/ruby/gems/1.9.1/gems/hpricot-0.8.5/lib/hpricot/builder.rb:9:in `uxs'
+	from /home/alexey/rubystack-1.9.3-5/ruby/lib/ruby/gems/1.9.1/gems/hpricot-0.8.5/lib/hpricot/tag.rb:47:in `[]'
+	from realtSite.rb:303:in `block in searchCnt_all'
+	from realtSite.rb:300:in `each'
+	from realtSite.rb:300:in `searchCnt_all'
+	from realtSite.rb:320:in `catchPage'
+	from realtSite.rb:407:in `<main>'
+
+выполнить с ключом: $ ruby --encoding=cp1251 realtSite.rb
+
+или в первой строке файла написать "shebang"-коментарий, чтобы сообщить Юникс-подобной
+операционной системе, как ее следует выполнить: #!ruby --encoding=cp1251.
+
+Ключ --encoding=cp1251 применяется для указания используемой по умолчанию внешней кодировки 
+Ruby-процесса.
+ 
+	  
+=======
+	  #порядок следования переменных безразлично   
+	  
+>>>>>>> 8faddc850d38ac00fcc800bb7f73fafc326c3e50
