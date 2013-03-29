@@ -69,14 +69,14 @@ public
                   if !RealtSecond.where(:value_id => res[3]).exists?
                     then 
                         RealtSecond.create(:reference => res[0], :value_id => res[3])                        
-                        @msg = " - " + res[0].clone + "\n"                         
+                        @msg = @msg + " - " + res[0].clone + "\n"                                      
                   end                  
             end
 
          end#str_html       
 
       end#countPage.times
-      (@msg = @msg + "Nothing") if @msg == ""
+      (@msg = @msg + "Nothing") if @msg == ""      
    end
 
 end
@@ -85,5 +85,5 @@ htm = HTMLrealt.new("http://realt.ua", "/Db2/0Sd_Kv.php?", 2, 0, 300, 0)
 
 htm.catchPage(/(http.*)(vid=)(\w*)(\S*\b)/,  /cnt_all=([0-9]*)/)
 
-MaileRealt.welcom("alexey.kondratenko@mail.ru", htm.msg).deliver
+MaileRealt.welcom("denis.kondratenko@gmail.com", htm.msg).deliver
 
