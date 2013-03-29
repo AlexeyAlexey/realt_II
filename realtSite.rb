@@ -9,7 +9,7 @@ require 'yaml'
 
 Dir.chdir(File.dirname File.expand_path('../realtSite.rb', __FILE__))
 
-ActiveRecord::Base.establish_connection("mysql2://b2de1d2c131a92:ed316f52@us-cdbr-east-03.cleardb.com/heroku_bd8015972428027")
+ActiveRecord::Base.establish_connection YAML.load_file('db.yaml')
   
 class RealtSecond < ActiveRecord::Base
 end
@@ -39,7 +39,6 @@ private
       @msg = ""
       @urlSite = proc{ |showNum, pos| "#{urlS}#{urlQ}Cn_min=#{сn_min}&Cn_max=#{сn_max}&TmSdch=#{9999}&srtby=#{5}&showNum=#{showNum}&vSps=#{vSps}&idNp=#{100000}&pos=#{pos}&valt=#{valt}"}
    end
-
    
    def str_html(showNum, pos) 
       uri = URI.parse @urlSite.call(showNum, pos)
